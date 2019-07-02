@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <counter-group counter-num="3"/>
-        <counter-sum :count-sum="countSum"></counter-sum>
+        <counter-sum></counter-sum>
     </div>
 </template>
 
@@ -15,11 +15,6 @@
             CounterGroup,
             CounterSum
         },
-        data() {
-            return {
-                countSum: 0,
-            }
-        }
     }
 </script>
 

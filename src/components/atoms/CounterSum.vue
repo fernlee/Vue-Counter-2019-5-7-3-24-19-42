@@ -3,9 +3,27 @@
 </template>
 
 <script>
+    import store from '../../store/store';
+    import { EventBus } from '../helper/event-bus.js';
+
     export default {
         name: "CounterSum",
-        props: ['countSum'],
+
+        data() {
+            return {
+                countSum: 0
+            }
+        },
+        mounted() {
+            EventBus.$on('update-sum', () => {
+                this.countSum = store.fetchCountArray().reduce((sum, count) => sum + count, 0)
+            });
+        },
+
+        destroyed() {
+            EventBus.$off('update-sum');
+        }
+
     }
 </script>
 
