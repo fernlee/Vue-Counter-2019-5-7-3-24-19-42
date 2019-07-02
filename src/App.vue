@@ -1,17 +1,24 @@
 <template>
     <div id="app">
-        <img alt="Vue logo" src="./assets/logo.png">
         <counter-group counter-num="3"/>
+        <counter-sum :count-sum="countSum"></counter-sum>
     </div>
 </template>
 
 <script>
     import CounterGroup from './components/molecules/CounterGroup'
+    import CounterSum from './components/atoms/CounterSum'
 
     export default {
         name: 'app',
         components: {
-            CounterGroup
+            CounterGroup,
+            CounterSum
+        },
+        data() {
+            return {
+                countSum: 0,
+            }
         }
     }
 </script>
