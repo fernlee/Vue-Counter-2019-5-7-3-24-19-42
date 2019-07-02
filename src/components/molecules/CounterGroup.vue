@@ -1,6 +1,6 @@
 <template>
     <div>
-        <counter v-for="n in parseInt(counterNum)"></counter>
+        <counter :index="n" v-for="n in parseInt(counterNum)"></counter>
     </div>
 </template>
 
