@@ -1,17 +1,19 @@
-export default {
-    data: {
+import Vue from 'vue'
+import Vuex from 'vuex';
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+    state: {
+        countSum: 0,
         countArray: []
     },
+    mutations: {
+        increment (state) {
+            state.countSum++;
+        },
 
-    // Methods that you need, for e.g fetching data from server etc.
-
-    fetchCountArray() {
-        // fetch logic
-        return this.data.countArray;
-    },
-
-    updateCount(index, count) {
-        this.data.countArray[index] = count;
+        decrement (state) {
+            state.countSum--;
+        }
     }
-
-}
+})

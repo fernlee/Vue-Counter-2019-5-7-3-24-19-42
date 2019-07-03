@@ -3,27 +3,14 @@
 </template>
 
 <script>
-    import store from '../../store/store';
-    import { EventBus } from '../helper/event-bus.js';
-
     export default {
         name: "CounterSum",
 
-        data() {
-            return {
-                countSum: 0
+        computed: {
+            countSum() {
+                return this.$store.state.countSum;
             }
-        },
-        mounted() {
-            EventBus.$on('update-sum', () => {
-                this.countSum = store.fetchCountArray().reduce((sum, count) => sum + count, 0)
-            });
-        },
-
-        destroyed() {
-            EventBus.$off('update-sum');
         }
-
     }
 </script>
 

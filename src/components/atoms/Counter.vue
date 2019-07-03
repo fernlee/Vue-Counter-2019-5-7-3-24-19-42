@@ -7,9 +7,6 @@
 </template>
 
 <script>
-    import store from "../../store/store.js";
-    import { EventBus } from '../helper/event-bus.js';
-
     export default {
         name: 'Counter',
         props: ['index'],
@@ -19,16 +16,14 @@
             }
         },
         methods: {
-            add: function() {
+            add: function () {
                 this.count++;
-                store.updateCount(this.index, this.count)
-                EventBus.$emit('update-sum');
+                this.$store.commit('increment');
             },
 
-            minus: function() {
+            minus: function () {
                 this.count--;
-                store.updateCount(this.index, this.count)
-                EventBus.$emit('update-sum');
+                this.$store.commit('decrement');
             }
         }
     }
