@@ -7,6 +7,8 @@
 </template>
 
 <script>
+    import {DECREMENT, INCREMENT} from '../../store/mutation-types';
+
     export default {
         name: 'Counter',
         props: ['index'],
@@ -18,12 +20,12 @@
         methods: {
             add: function () {
                 this.count++;
-                this.$store.commit('increment');
+                this.$store.commit(INCREMENT);
             },
 
             minus: function () {
                 this.count--;
-                this.$store.commit('decrement');
+                this.$store.commit(DECREMENT);
             }
         }
     }
